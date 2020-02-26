@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+<title>Product Catalog</title>
+</head>
+
+<body>
+
+	<div class="container">
+
+
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/">Home</a></li>
+				<li class="breadcrumb-item"><a href="/product/list">Product
+						List</a></li>
+				<li class="breadcrumb-item"><a href="/product/details">Product
+						Details</a></li>
+			</ol>
+		</nav>
+
+		<hr>
+
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Product Items</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="pitem : ${productitems}">		
+					<td th:text="${pitem}" />				
+				</tr>
+			</tbody>
+		</table>
+		
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Total Brand Items</th>
+					<th>Product Name</th>
+					<th>Brand</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="bitem : ${branditems}">		
+					<td th:text="${bitem.brandcount}" />	
+					<td th:text="${bitem.productName}" />
+					<td th:text="${bitem.brand}" />			
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		 <table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>Total Model Items</th>
+					<th>Product Name</th>
+					<th>Brand</th>
+					<th>Model</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="mitem : ${modeltitems}">		
+					<td th:text="${mitem.modelcount}" />		
+					<td th:text="${mitem.productName}" />
+				   <td th:text="${mitem.brand}" />	
+				     <td th:text="${mitem.model}" />	
+				</tr>
+			</tbody>
+		</table>
+		
+
+	</div>
+
+</body>
+</html>
+
+
+
